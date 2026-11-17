@@ -81,3 +81,6 @@ docs/reference/atomate2.*
 
 # deepmd-kit files
 **/*.pb
+
+# mypy
+.mypy_cache/
