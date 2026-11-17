@@ -137,8 +137,8 @@ atomate2
 ## Create a conda environment
 
 ```{note}
-Make sure to create a Python 3.11+ environment as recent versions of atomate2 only
-support Python 3.11 and higher.
+Make sure to create a Python 3.12+ environment as recent versions of atomate2 only
+support Python 3.12 and higher.
 ```
 
 We highly recommend that you organize your installation of the atomate2 and the other

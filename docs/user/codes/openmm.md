@@ -2,7 +2,7 @@
 
 ```bash
 # setting up our conda environment
->>> conda create -n atomate2 python=3.11
+>>> conda create -n atomate2 python=3.12
 >>> conda activate atomate2
 
 # installing atomate2

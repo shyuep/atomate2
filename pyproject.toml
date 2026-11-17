@@ -17,13 +17,12 @@ classifiers = [
     "Intended Audience :: System Administrators",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Topic :: Other/Nonlisted Topic",
     "Topic :: Scientific/Engineering",
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
     "PyYAML",
     "click",
@@ -63,7 +62,7 @@ ase-ext = ["tblite>=0.3.0; platform_system=='Linux'"]
 forcefields-demo = ["chgnet>=0.3.8","atomate2[ase]"]
 
 torchsim = [
-    "torch-sim-atomistic==0.6.0; python_version >= '3.12'"
+    "torch-sim-atomistic==0.6.0"
 ]
 jdftx = ["pymatgen==2026.5.4"]
 approxneb = ["pymatgen-analysis-diffusion>=2024.7.15"]
@@ -90,8 +89,7 @@ strict-openff = [
 # ALWAYS REMEMBER to update `.github/workflows/testing.yml` to reflect the current set of
 # forcefield dependency groups.
 strict-forcefields-generic = [
-    "calorine==3.3; python_version >= '3.12'",
-    "calorine==3.1; python_version < '3.12'",
+    "calorine==3.3",
     "chgnet==0.4.2",
     "quippy-ase==0.10.3",
     "sevenn==0.12.1",
@@ -200,12 +198,16 @@ exclude_lines = [
 ]
 
 [tool.ruff]
-target-version = "py310"
+target-version = "py312"
 output-format = "concise"
 
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
+    # PEP 695 syntax (py312) changes runtime semantics of public aliases/generics; migrate deliberately.
+    "UP040", # non-pep695-type-alias
+    "UP046", # non-pep695-generic-class
+    "UP047", # non-pep695-generic-function
     "ANN002",  # Missing type annotation for *arg
     "ANN003",  # Missing type annotation for **kwargs
     "ANN401",  # typing.Any disallowed
